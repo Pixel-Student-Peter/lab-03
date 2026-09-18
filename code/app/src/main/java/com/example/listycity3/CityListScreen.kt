@@ -94,7 +94,7 @@ fun CityListScreen(
             OutlinedTextField(
                 value = updateCityName,
                 onValueChange = {updateCityName = it},
-                label = {Text("City")},
+                label = {Text("Updated City")},
                 modifier = Modifier.weight(1f)
             )
             Spacer(modifier = Modifier.width(18.dp))
@@ -102,7 +102,7 @@ fun CityListScreen(
 
                 value = updateProvinceName,
                 onValueChange = {updateProvinceName = it},
-                label = {Text("Province")},
+                label = {Text("Updated Province")},
                 modifier = Modifier.weight(1f)
             )
             Spacer(modifier = Modifier.width(18.dp))
@@ -122,6 +122,8 @@ fun CityListScreen(
             itemsIndexed(cities) { index, city ->
                 CityRow(city = city, selectCity = {pastCityName = city.name
                     pastCityProvince = city.province
+                    updateCityName = city.name
+                    updateProvinceName = city.province
                     if(showUpdateCityField == false){showUpdateCityField = !showUpdateCityField}})
                 if (index < cities.lastIndex) {
                     HorizontalDivider()
